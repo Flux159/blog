@@ -64,6 +64,7 @@ sudo su
 fdisk -l (should show /dev/sda - which will be used for following commands)
 cfdisk /dev/sda
 
+# The following is in the cfdisk terminal interface
 [New] [Primary] [Enter for default] [Beginning] [Bootable - select this]
 [Write]
 yes
@@ -75,7 +76,7 @@ rebuildfstab
 mount /mnt/sda1
 mkdir -p /mnt/sda1/boot/grub
 
-Mount the original boot media (the disk) - it was at /dev/sr0 (just did cat /etc/fstab to check):
+# Mount the original boot media (the disk) - it was at /dev/sr0 (just did cat /etc/fstab to check):
 mount /mnt/sr0
 cp -p /mnt/sr0/boot/* /mnt/sda1/boot/
 mkdir -p /mnt/sda1/tce
