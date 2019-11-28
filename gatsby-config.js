@@ -1,6 +1,8 @@
 require("dotenv").config();
 const queries = require("./src/utils/algolia");
 const config = require("./config");
+const proxy = require("http-proxy-middleware");
+
 const plugins = [
   'gatsby-plugin-sitemap',
   'gatsby-plugin-sharp',
@@ -78,6 +80,16 @@ module.exports = {
     tweetText: config.header.tweetText,
     headerLinks: config.header.links,
     siteUrl: config.gatsby.siteUrl,
+  },
+  // Need this in order to properly render iframes in development mode
+  // Production doesn't use this as it properly copies files over
+  developMiddleware: app => {
+    app.use(
+      "/htmlresources",
+      proxy({
+        target: "http://localhost:9000/" // other server is running on port 9000
+      })
+    );
   },
   plugins: plugins
 };
