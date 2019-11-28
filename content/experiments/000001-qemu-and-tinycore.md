@@ -107,7 +107,7 @@ eject /dev/hdc
 reboot
 ```
 
-Note that cfdisk, etc. have been deleted because they were installed on the temporary iso, but now that you’ve installed to disk, the next time you run qemu, you can just boot from iso:
+Note that cfdisk, etc. have been deleted because they were installed on the temporary iso, but now that you’ve installed to disk, the next time you run qemu, you can just boot from disk:
 
 ```shell
 qemu-system-x86_64 -hda tinycore.img -m 512 -boot d -net nic -net user,hostfwd=tcp:127.0.0.1:8009-:80 
