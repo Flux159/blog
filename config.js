@@ -2,8 +2,8 @@ const config = {
 	"gatsby": {
 		"pathPrefix": "/",
 		// "pathPrefix": "/blog",
-		"siteUrl": "https://suyogsonwalkar.com",
-		"assetPrefix": "https://suyogsonwalkar.com",
+		"siteUrl": "http://suyogsonwalkar.com",
+		"assetPrefix": "http://suyogsonwalkar.com",
 		// "siteUrl": "https://flux159.github.io",
 		// "assetPrefix": "https://flux159.github.io",
 		"gaTrackingId": null
