@@ -88,10 +88,9 @@ body {
   margin: 0 15px;
   border-right: 1px solid rgba(255, 255, 255, 0.3);
 }
-/* .navBarULRight {
-  position: absolute;
-  right: 30px;
-} */
+.navBarULRight {
+  padding-right: 20px;
+}
 .githubIcon {
   width: 15px;
   margin-right: 5px;
