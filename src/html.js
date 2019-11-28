@@ -31,8 +31,6 @@ export default class HTML extends React.Component {
             />
           ) : null}
           <link rel="stylesheet" href="/bootstrap.min.css" />
-          <script src="/jquery-3.3.1.min.js"></script>
-          <script src="/bootstrap.min.js"></script>
           {this.props.headComponents}
         </head>
         <body {...this.props.bodyAttributes}>
@@ -43,17 +41,6 @@ export default class HTML extends React.Component {
             dangerouslySetInnerHTML={{ __html: this.props.body }}
           />
           {this.props.postBodyComponents}
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `
-            $(document).on('click','.navbar-collapse.in',function(e) {
-              if( $(e.target).is('a') ) {
-                $(this).collapse('hide');
-              }
-            });
-            `
-            }}
-          />
         </body>
       </html>
     );

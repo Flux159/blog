@@ -124,7 +124,7 @@ const SidebarLayout = ({location}) => (
     render={({allMdx}) => {
       return (
         <Sidebar>
-          <ul className={'sideBarUL'}>
+          <ul className="sideBarUL">
             <Tree
               edges={allMdx.edges}
             />

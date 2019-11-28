@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { StaticQuery, graphql } from "gatsby";
 import GitHubButton from "react-github-btn";
 import Link from "./link";
@@ -21,8 +21,10 @@ if (isSearchEnabled && config.header.search.indexName) {
 
 import Sidebar from "./sidebar";
 
-const Header = ({ location }) => (
-  <StaticQuery
+const Header = ({ location }) => {
+  const [open, setOpen] = useState(false);
+
+  return (<StaticQuery
     query={graphql`
       query headerTitleQuery {
         site {
@@ -74,10 +76,7 @@ const Header = ({ location }) => (
               <button
                 type="button"
                 className="navbar-toggle collapsed navBarToggle"
-                data-toggle="collapse"
-                data-target="#navbar"
-                aria-expanded="false"
-                aria-controls="navbar"
+                onClick={() => setOpen(!open)}
               >
                 <span className="sr-only">Toggle navigation</span>
                 <span className="icon-bar"></span>
@@ -92,7 +91,8 @@ const Header = ({ location }) => (
             ) : null}
             <div
               id="navbar"
-              className="navbar-collapse collapse navBarCollapse"
+              className={open ? 'navbar-collapse collapse show navBarCollapse' : 'collapse navBarCollapse'}
+              onClick={() => setOpen(false)}
             >
               <div className="visible-xs">
                 <Sidebar location={location} />
@@ -158,7 +158,7 @@ const Header = ({ location }) => (
         </div>
       );
     }}
-  />
-);
+  />)
+  };
 
 export default Header;
