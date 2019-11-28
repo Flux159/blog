@@ -8,7 +8,7 @@ const config = {
 	"header": {
 		"logo": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=",
 		"logoLink": "https://suyogsonwalkar.com/",
-		"title": "Suyogs Blog",
+		"title": "suyogs",
 		"githubUrl": "https://github.com/flux159/blog",
 		"helpUrl": "",
 		"tweetText": "",
