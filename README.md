@@ -1,6 +1,6 @@
 # Suyogs blog
 
-Built off of gatsby-gitbook-starter.
+Built off of gatsby-gitbook-starter
 
 Added github action to publish to github pages on every change
 
