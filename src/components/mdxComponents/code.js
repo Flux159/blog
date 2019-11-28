@@ -1,3 +1,3 @@
-const Code = ({children}) => <div className="mdx-code">{children}</div>;
+const Code = ({children}) => <span className="mdx-code">{children}</span>;
 
 export default Code;
