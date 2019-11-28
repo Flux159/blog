@@ -15,7 +15,7 @@ Get started by running the following commands (assumes node, npm, and yarn are i
 ```
 $ git clone https://github.com/Flux159/blog.git
 $ npm install -g gatsby-cli
-$ npm install
+$ yarn
 $ gatsby develop
 ```
 

@@ -30,11 +30,15 @@ const CodeBlock = ({ children: exampleCode, ...props }) => {
       </LiveProvider>
     );
   } else {
+    let language = "javascript";
+    if (props.className != null) {
+      language = props.className.replace('language-', '');
+    }
     return (
       <Highlight
         {...defaultProps}
         code={exampleCode}
-        language="javascript"
+        language={language}
         theme={prismTheme}
       >
         {({ className, style, tokens, getLineProps, getTokenProps }) => (

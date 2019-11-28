@@ -25,11 +25,11 @@ const config = {
 	},
 	"sidebar": {
 		"forcedNavOrder": [
-			"/introduction",
-    		"/codeblock"
+			"/work",
+			"/projects",
 		],
 		"links": [
-			{ "text": "Github", "link": "https://github.com/flux159"},
+			{ "text": "Github", "link": "https://github.com/flux159/blog"},
 		],
 		"frontline": false,
 		"ignoreIndex": true,
