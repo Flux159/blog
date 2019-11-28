@@ -61,20 +61,20 @@ const Sidebar = styled('aside')`
   padding-right: 0;
   background-color: #0784b5;
   /* Safari 4-5, Chrome 1-9 */
-  background: linear-gradient(#0784b5, #39ace7);
-  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#0784b5), to(#39ace7));
+  background: linear-gradient(#39ace7, #0784b5);
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#39ace7), to(#0784b5));
   /* Safari 5.1, Chrome 10+ */
-  background: -webkit-linear-gradient(top, #0784b5, #39ace7);
+  background: -webkit-linear-gradient(top, #39ace7, #0784b5);
   /* Firefox 3.6+ */
-  background: -moz-linear-gradient(top, #0784b5, #39ace7);
+  background: -moz-linear-gradient(top, #39ace7, #0784b5);
   /* IE 10 */
-  background: -ms-linear-gradient(top, #0784b5, #39ace7);
+  background: -ms-linear-gradient(top, #39ace7, #0784b5);
   /* Opera 11.10+ */
-  background: -o-linear-gradient(top, #0784b5, #39ace7);
+  background: -o-linear-gradient(top, #39ace7, #0784b5);
   @media only screen and (max-width: 767px) {
     padding-left: 0px;
-    background-color: #0784b5;
-    background: #0784b5;
+    background-color: #39ace7;
+    background: #39ace7;
   }
   @media (min-width: 767px) and (max-width:1023px)
   {

@@ -6,9 +6,13 @@ metaTitle: "Zero to Web Browser"
 metaDescription: "Thoughts on Zero to Web Browser"
 ---
 
+# Intro
+
 This is mainly a thought project I've had for a while now taking inspiration from [Nand2Tetris](https://www.nand2tetris.org/), [OS Development](https://wiki.osdev.org/Expanded_Main_Page), [Build your own react](https://pomb.us/build-your-own-react/) and various projects working on making an Operating Sytem from scratch.
 
 I want to take the next step from writing an OS (bootloader, kernel, processes & memory management, drivers) to writing a full fledged Web Browser. This would involve a lot of additional work (including writing a windowing engine, html/css parser, JS engine), but it should be feasible to have a working system that can connect to the Web. Ideally this would be taught as a course in college to inform students of the wide variety of different topics in Computer Science and Computer Engineering.
+
+# Steps
 
 (Modern) Computers from the ground up to a Web Browser to Machine Learning (along the way need to mention Math, Physics/Mechanics/Chemistry, optimization / businesses that allow people in the next layer to focus on making that better):
 - Physics + Electrical circuits (voltage, amps, op amps / transistor circuits, nand gates / boolean logic)
@@ -25,5 +29,7 @@ I want to take the next step from writing an OS (bootloader, kernel, processes &
 - Machine learning - the tools & how to think about it from a high level perspective - simple algorithms to neural networks and systematization of data science tools to support ML
 - Optimizations in specific fields helping in other fields
 - iOS, Android, KaiOS, mobile computing and the future of computation (trucks vs cars analogy kinda works but only goes so far)
+
+# Aside
 
 This is mainly just a thought experiment at the moment, but if I have sufficient time, I'd want to work/collaborate on a project like this.
