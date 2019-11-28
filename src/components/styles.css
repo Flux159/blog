@@ -3,6 +3,47 @@ body {
   font-family: 'Roboto';
 }
 
+.layout-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media only screen and (max-width: 767px) {
+  .layout-wrapper {
+    display: block;
+  }
+}
+
+.layout-content {
+  display: flex;
+  flex-grow: 1;
+  margin: 0px 88px;
+  margin-top: 3rem;
+}
+
+@media only screen and (max-width: 1023px) {
+  .layout-content {
+    padding-left: 0;
+    margin: 0 10px;
+    margin-top: 3rem;
+  }
+}
+
+@media only screen and (max-width: 50rem) {
+  .layout-maxwidth {
+    width: 100%;
+    position: relative; 
+  }
+}
+
+.layout-left-sidebar-width {
+  width: 298px;
+}
+
+.layout-right-sidebar-width {
+  width: 224px;
+}
+
 .collapse {
   display: block;
   max-height: 0px;
