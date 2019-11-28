@@ -46,48 +46,6 @@ const ListItem = styled(({ className, active, level, ...props }) => {
   }
 `;
 
-const Sidebar = styled('aside')`
-  width: 100%;
-  /* background-color: rgb(245, 247, 249); */
-  /* border-right: 1px solid #ede7f3; */
-  height: 100vh;
-  overflow: auto;
-  position: fixed;
-  padding-left: 0px;
-  position: -webkit-sticky;
-  position: -moz-sticky;
-  position: sticky;
-  top: 0;
-  padding-right: 0;
-  background-color: #0784b5;
-  /* Safari 4-5, Chrome 1-9 */
-  background: linear-gradient(#39ace7, #0784b5);
-  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#39ace7), to(#0784b5));
-  /* Safari 5.1, Chrome 10+ */
-  background: -webkit-linear-gradient(top, #39ace7, #0784b5);
-  /* Firefox 3.6+ */
-  background: -moz-linear-gradient(top, #39ace7, #0784b5);
-  /* IE 10 */
-  background: -ms-linear-gradient(top, #39ace7, #0784b5);
-  /* Opera 11.10+ */
-  background: -o-linear-gradient(top, #39ace7, #0784b5);
-  @media only screen and (max-width: 767px) {
-    padding-left: 0px;
-    background-color: #39ace7;
-    background: #39ace7;
-  }
-  @media (min-width: 767px) and (max-width:1023px)
-  {
-    padding-left: 0;
-  }
-  @media only screen and (max-width: 1023px) {
-    width: 100%;
-    /* position: relative; */
-    height: 100vh;
-  }
-`;
-
-
 const Divider = styled(props => (
   <li {...props}>
     <hr />
@@ -123,7 +81,7 @@ const SidebarLayout = ({location}) => (
     `}
     render={({allMdx}) => {
       return (
-        <Sidebar>
+        <aside className="components-sidebar">
           <ul className="sideBarUL">
             <Tree
               edges={allMdx.edges}
@@ -140,7 +98,7 @@ const SidebarLayout = ({location}) => (
               }
             })}
           </ul>
-        </Sidebar>
+        </aside>
       );
     }}
   />
