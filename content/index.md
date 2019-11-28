@@ -1,5 +1,7 @@
 ---
 title: "Suyogs Website"
+metaTitle: "Suyogs Website"
+metaDescription: "Suyogs Website"
 ---
 
 A humble beginning for my blog.
