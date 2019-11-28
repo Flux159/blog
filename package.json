@@ -52,7 +52,7 @@
   "main": "n/a",
   "scripts": {
     "start": "gatsby develop",
-    "build": "gatsby build --prefix-paths",
+    "build": "gatsby build --prefix-paths && echo \"suyogsonwalkar.com\" > public/CNAME",
     "runbuild": "cd ./public && python -m http.server"
   },
   "devDependencies": {
