@@ -164,7 +164,7 @@ body {
   border-top: 0;
   margin-bottom: 0;
   border: 0;
-  display: flex;
+  display: block;
   align-items: center;
   /* box-shadow: -1px 0px 4px 1px rgba(175,158,232,.4);
   -webkit-box-shadow: -1px 0px 4px 1px rgba(175,158,232,.4);
@@ -736,7 +736,13 @@ img {
   }
 }
 
-@media (min-width: 768px) and (max-width: 991px) {
+@media (min-width: 1023px) and (max-width: 1250px) {
+  .mainWrapper {
+    max-width: 625px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
   .navBarDefault {
     padding: 10px;
   }
@@ -749,6 +755,9 @@ img {
   .navBarCollapse {
     padding-right: 10px;
     padding-left: 10px;
+  }
+  .mainWrapper {
+    max-width: 500px;
   }
   .githubBtn {
     padding: 10px 10px;
