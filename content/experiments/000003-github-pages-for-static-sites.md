@@ -10,7 +10,7 @@ metaDescription: "Using Github Pages with Gatsby.js"
 
 Writing a static site has gotten significantly more difficult than "upload a .html file to a shared host" in the 90s.
 
-This post is talking about how I setup [this](https://suyogsonwalkar.com/) [blog](https://github.com/flux159/blog) to be hosted on Github Pages and used a Github Action to update on every push to master. It uses [Gatsby](https://www.gatsbyjs.org/) as the static site generator and I started with a [template](https://www.gatsbyjs.org/starters/hasura/gatsby-gitbook-starter/) that lets me use [mdx](https://github.com/mdx-js/mdx) in my posts for interactive React content.
+This post is talking about how I setup [this](https://suyogs.com/) [blog](https://github.com/flux159/blog) to be hosted on Github Pages and used a Github Action to update on every push to master. It uses [Gatsby](https://www.gatsbyjs.org/) as the static site generator and I started with a [template](https://www.gatsbyjs.org/starters/hasura/gatsby-gitbook-starter/) that lets me use [mdx](https://github.com/mdx-js/mdx) in my posts for interactive React content.
 
 Some of the nice parts of this setup is that I can update the markdown content via the Github online editor (works on mobile and in any browser). Since the Github Action is setup to continuously deploy a new build on every commit to master, I don't need to clone, build, and redeploy on a local machine.
 
@@ -85,9 +85,9 @@ Once I had the gh-pages branch setup and autodeploying my changes on commit, I w
 
 I use [Namecheap](https://www.namecheap.com/) as my Domain Name Provider, so I followed Github's [instructions](https://help.github.com/en/github/working-with-github-pages/managing-a-custom-domain-for-your-github-pages-site) on how to properly setup my A records.
 
-I also needed to add a `CNAME` file in my master branch with the name of my site [suyogsonwalkar.com](https://suyogsonwalkar.com).
+I also needed to add a `CNAME` file in my master branch with the name of my site [suyogs.com](https://suyogs.com).
 
-After the DNS changes propagated, I was able to go to https://suyogsonwalkar.com and it showed my Github Pages site!
+After the DNS changes propagated, I was able to go to https://suyogs.com and it showed my Github Pages site!
 
 # Additions
 

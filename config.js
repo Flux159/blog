@@ -1,13 +1,13 @@
 const config = {
 	"gatsby": {
 		"pathPrefix": "/",
-		"siteUrl": "https://suyogsonwalkar.com",
-		"assetPrefix": "https://suyogsonwalkar.com",
+		"siteUrl": "https://suyogs.com",
+		"assetPrefix": "https://suyogs.com",
 		"gaTrackingId": null
 	},
 	"header": {
 		"logo": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=",
-		"logoLink": "https://suyogsonwalkar.com/",
+		"logoLink": "https://suyogs.com/",
 		"title": "suyogs",
 		"githubUrl": "https://github.com/flux159/blog",
 		"helpUrl": "",

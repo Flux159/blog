@@ -6,7 +6,7 @@ Added github action to publish to github pages on every change.
 
 ## 🔗 Site
 
-Here's [the site](https://suyogsonwalkar.com) this is hosted at.
+Here's [the site](https://suyogs.com) this is hosted at.
 
 ## 🚀 Edits
 
