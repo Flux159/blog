@@ -1,8 +1,8 @@
 {
-  "name": "gatsby-gitbook-boilerplate",
+  "name": "blog",
   "private": true,
-  "description": "Documentation, built with mdx",
-  "author": "Praveen <praveen@hasura.io> (@praveenweb)",
+  "description": "Suyogs website",
+  "author": "Suyog Sonwalkar",
   "version": "0.0.1",
   "dependencies": {
     "@babel/plugin-proposal-export-default-from": "^7.5.2",
@@ -52,7 +52,8 @@
   "main": "n/a",
   "scripts": {
     "start": "gatsby develop",
-    "build": "gatsby build --prefix-paths"
+    "build": "gatsby build --prefix-paths",
+    "runbuild": "cd ./public && python -m http.server"
   },
   "devDependencies": {
     "gatsby-plugin-remove-trailing-slashes": "^2.1.2",

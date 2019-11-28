@@ -64,6 +64,7 @@ if (config.header.search && config.header.search.enabled && config.header.search
 }
 module.exports = {
   pathPrefix: config.gatsby.pathPrefix,
+  assetPrefix: config.gatsby.assetPrefix,
   siteMetadata: {
     title: config.siteMetadata.title,
     description: config.siteMetadata.description,
