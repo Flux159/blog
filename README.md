@@ -1,4 +1,10 @@
-# gatsby-gitbook-starter
+# Suyogs blog
+
+Built off of gatsby-gitbook-starter
+
+Added github action to publish to github pages on every change
+
+## gatsby-gitbook-starter
 
 Kick off your project with this starter to create a powerful/flexible docs/tutorial web apps.
 
