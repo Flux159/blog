@@ -116,4 +116,6 @@ qemu-system-x86_64 -hda tinycore.img -m 512 -boot d -net nic -net user,hostfwd=t
 
 # References
 - http://tinycorelinux.net/faq.html - Tinycore's FAQ
+- http://tinycorelinux.net/install_manual.html - Tinycore's Install Manual
+- http://forum.tinycorelinux.net/index.php?topic=15713.0 - Forum post about changes to grub configuration
 - https://jon.sprig.gs/blog/post/53 - useful to start experimenting with Qemu arguments
