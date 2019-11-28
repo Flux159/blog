@@ -56,7 +56,6 @@ const Header = ({location}) => (
           }
         }
       } = data;
-      console.log(data);
       const finalLogoLink = logo.link !== '' ? logo.link : '/';
       return (
         <div className={'navBarWrapper'}>

@@ -19,6 +19,11 @@ exports.createPages = ({ graphql, actions }) => {
                   fields {
                     slug
                   }
+                  frontmatter {
+                    title
+                    path
+                    date
+                  }
                 }
               }
             }
@@ -87,6 +92,18 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       name: "title",
       node,
       value: node.frontmatter.title || startCase(parent.name)
+    });
+
+    createNodeField({
+      name: "path",
+      node,
+      value: node.frontmatter.path,
+    });
+
+    createNodeField({
+      name: "date",
+      node,
+      value: node.frontmatter.date,
     });
   }
 };

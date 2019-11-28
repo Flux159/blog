@@ -1,6 +1,7 @@
 ---
 title: "Zero to Web Browser"
 path: /experiments/zero-to-web-browser
+date: "11-28-2019"
 metaTitle: "Zero to Web Browser"
 metaDescription: "Thoughts on Zero to Web Browser"
 ---

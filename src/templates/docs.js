@@ -136,20 +136,21 @@ export default class MDXRuntimeTest extends Component {
           {metaDescription ? <meta property="twitter:description" content={metaDescription} /> : null}
           <link rel="canonical" href={canonicalUrl} />
         </Helmet>
-        <div className={'titleWrapper'}>
-          <h1 className={'title'}>
+        <div className="titleWrapper">
+          <h1 className="title">
             {mdx.fields.title}
           </h1>
+          <h6 className="subtitle">{mdx.frontmatter.date || ''}</h6>
           {/* <Edit className={'mobileView'}>
             <Link className={'gitBtn'} to={`${docsLocation}/${mdx.parent.relativePath}`}>
               <img src={gitHub} alt={'Github logo'} /> Edit on GitHub
             </Link>
           </Edit> */}
         </div>
-        <div className={'mainWrapper'}>
+        <div className="mainWrapper">
           <MDXRenderer>{mdx.body}</MDXRenderer>
         </div>
-        <div className={'addPaddTopBottom'}>
+        <div className="addPaddTopBottom">
           <NextPrevious mdx={mdx} nav={nav} />
         </div>
       </Layout>
@@ -181,6 +182,8 @@ export const pageQuery = graphql`
       frontmatter {
         metaTitle
         metaDescription
+        path
+        date
       }
     }
     allMdx {

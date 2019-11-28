@@ -1,6 +1,7 @@
 ---
 title: "QEMU and Tinycore Linux"
 path: /experiments/qemu-and-tinycore
+date: "11-28-2019"
 metaTitle: "QEMU and Tinycore Linux 10.1"
 metaDescription: "Experimenting with Tinycore Linux and QEMU"
 ---

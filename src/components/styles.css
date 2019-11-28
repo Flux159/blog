@@ -405,6 +405,10 @@ pre {
   padding-top: 0;
 }
 
+.subtitle {
+  color: #9DAAB6;
+}
+
 .gitBtn {
   height: 30px;
   min-height: 30px;
@@ -688,6 +692,10 @@ img {
   .titleWrapper {
     padding: 0 15px;
     display: block;
+  }
+
+  .subtitle {
+    padding-left: 20px;
   }
 
   .mobileView {
