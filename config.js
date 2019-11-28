@@ -38,8 +38,8 @@ const config = {
 		"title": "Suyogs website",
 		"description": "Suyogs website",
 		"ogImage": null,
-		"docsLocation": "https://github.com/hasura/gatsby-gitbook-boilerplate/tree/master/content",
-		"favicon": "https://graphql-engine-cdn.hasura.io/img/hasura_icon_black.svg"
+		"docsLocation": "https://github.com/flux159/blog",
+		"favicon": ""
 	},
 };
 
