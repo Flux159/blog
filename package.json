@@ -55,6 +55,7 @@
   "scripts": {
     "start": "gatsby develop",
     "develop": "concurrently --kill-others \"cd static && python -m http.server 9000\" \"gatsby develop\"",
+    "developvm": "gatsby develop --host=0.0.0.0",
     "build": "gatsby build --prefix-paths",
     "runbuild": "cd ./public && python -m http.server"
   },
