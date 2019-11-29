@@ -12,6 +12,8 @@ A humble beginning for my blog.
 
 [Experiments and Thoughts](experiments)
 
+<!-- TODO: Add paginated / searchable index page -->
+
 ---
 
 Hosted on [Github Pages](https://pages.github.com/). 

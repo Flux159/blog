@@ -105,6 +105,7 @@ export default class MDXRuntimeTest extends Component {
         <div className="mainWrapper">
           <MDXRenderer>{mdx.body}</MDXRenderer>
         </div>
+        {/* TODO: Add commenting: https://www.gatsbyjs.org/docs/adding-comments/ */}
         <div className="addPaddTopBottom">
           <NextPrevious mdx={mdx} nav={nav} />
         </div>
