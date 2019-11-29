@@ -1,17 +1,17 @@
-import system from "@rebass/components/emotion";
+import React from 'react';
 
-const Text = system(
-  {
-    m: 0
-  },
-  "space",
-  "color",
-  "fontFamily",
-  "fontSize",
-  "fontWeight",
-  "textAlign",
-  "lineHeight"
-);
-Text.displayName = "Text";
+const Text = ({ is, ...props }) => {
+  let Component = "p";
+  if (is != null) {
+    Component = is;
+  }
+
+  return (
+    <Component
+      className="mdx-text"
+      {...props}
+    ></Component>
+  );
+};
 
 export default Text;

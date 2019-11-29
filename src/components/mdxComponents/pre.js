@@ -1,19 +1,17 @@
-import system from "@rebass/components/emotion";
+import React from 'react';
 
-const Pre = system(
-  {
-    is: "pre",
-    fontSize: 1,
-    // fontFamily: "mono",
-    m: 0
-  },
-  {
-    overflow: "auto",
-  },
-  "fontFamily",
-  "space",
-  "color"
-);
-Pre.displayName = "Pre";
+const Pre = ({ is, ...props }) => {
+  let Component = "pre";
+  if (is != null) {
+    Component = is;
+  }
+
+  return (
+    <Component
+      className="mdx-pre"
+      {...props}
+    ></Component>
+  );
+};
 
 export default Pre;

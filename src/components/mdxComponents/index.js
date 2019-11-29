@@ -1,5 +1,5 @@
 import React from "react";
-import Heading from "../heading";
+import Heading from "./heading";
 import Text from "./text";
 import Code from "./code";
 import CodeBlock from "./codeBlock";

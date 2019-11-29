@@ -21,8 +21,12 @@ html, body {
   "Apple Color Emoji",
   "Segoe UI Emoji",
   "Segoe UI Symbol";
-
   font-size: 16px;
+}
+
+a {
+  transition: color 0.15s;
+  color: #663399;
 }
 
 body {
@@ -103,6 +107,21 @@ body {
   border-radius: 4px;
   padding: 2px 6px;
   font-size: 0.9375em;
+}
+
+.mdx-heading {
+  line-height: 1.5;
+}
+
+.mdx-text {
+  margin: 16px 0 32px 0;
+  line-height: 1.625;
+}
+
+.mdx-pre {
+  font-size: 1;
+  margin: 0;
+  overflow: auto;
 }
 
 .right-sidebar {
