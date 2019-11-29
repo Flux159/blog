@@ -27,6 +27,8 @@ const config = {
 		"forcedNavOrder": [
 			"/work",
 			"/projects",
+			"/experiments",
+			"/images",
 		],
 		"links": [
 			{ "text": "Github", "link": "https://github.com/flux159/blog"},

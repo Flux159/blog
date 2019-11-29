@@ -511,6 +511,12 @@ pre {
   margin-bottom: 32px;
 }
 
+@media only screen and (max-width: 767px) {
+  .titleWrapper {
+    margin-bottom: 8px;
+  }
+}
+
 .title {
   font-size: 32px;
   line-height: 1.5;
