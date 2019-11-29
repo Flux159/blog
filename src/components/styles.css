@@ -1,6 +1,59 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: -apple-system,
+  BlinkMacSystemFont,
+  "Segoe UI",
+  "Roboto",
+  "Roboto Light",
+  "Oxygen",
+  "Ubuntu",
+  "Cantarell",
+  "Fira Sans",
+  "Droid Sans",
+  "Helvetica Neue",
+  sans-serif,
+  "Apple Color Emoji",
+  "Segoe UI Emoji",
+  "Segoe UI Symbol";
+
+  font-size: 16px;
+}
+
 body {
   font-family: "Roboto";
+}
+
+.layout-edit {
+  padding: 1rem 1.5rem;
+  text-align: right;
+}
+
+.layout-edit a {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1em;
+  text-decoration: none;
+  color: #555;
+  border: 1px solid rgb(211, 220, 228);
+  cursor: pointer;
+  border-radius: 3px;
+  transition: all 0.2s ease-out 0s;
+  text-decoration: none;
+  color: rgb(36, 42, 49);
+  background-color: rgb(255, 255, 255);
+  box-shadow: rgba(116, 129, 141, 0.1) 0px 1px 1px 0px;
+  height: 30px;
+  padding: 5px 16px;
+}
+
+.layout-edit a:hover {
+  background-color: rgb(245, 247, 249);
 }
 
 .layout-wrapper {
@@ -50,6 +103,27 @@ body {
   border-radius: 4px;
   padding: 2px 6px;
   font-size: 0.9375em;
+}
+
+.right-sidebar {
+  width: 100%;
+  background-color: #fff;
+  border-right: 1px solid #ede7f3;
+  height: 100vh;
+  overflow: auto;
+  position: fixed;
+  padding-left: 24px;
+  position: -webkit-sticky;
+  position: -moz-sticky;
+  position: sticky;
+  top: 0;
+}
+
+@media only screen and (max-width: 50rem) {
+  .right-sidebar {
+    width: 100%;
+    position: relative;
+  }
 }
 
 .components-sidebar {
@@ -103,6 +177,46 @@ body {
     /* position: relative; */
     height: 100vh;
   }
+}
+
+.sidebar-divider {
+  list-style: none;
+  padding: 0.5rem 0;
+}
+
+.sidebar-divider hr {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-bottom: 1px solid #ede7f3;
+}
+
+.sidebar-listitem {
+  list-style: none;
+}
+
+.sidebar-listitem li a {
+  color: #5C6975;
+  text-decoration: none;
+  padding: 0.45rem 0 0.45rem 0;
+  display: block;
+  position: relative;
+}
+
+.sidebar-listitem a:hover {
+  color: #ffffff !important;
+}
+
+.sidebar-listitem a.active {
+  color: #663399;
+  border-color: rgb(230,236,241) !important;
+  border-style: solid none solid solid;
+  border-width: 1px 0px 1px 1px;
+  background-color: #fff;
+}
+
+.sidebar-listitem a svg {
+  float: right;
 }
 
 .collapse {
@@ -423,6 +537,7 @@ pre {
 
 .rightSideBarUL li {
   list-style-type: none;
+  list-style: none;
   border-left: 1px solid #e6ecf1;
   border-left-color: rgb(230, 236, 241);
 }
@@ -432,6 +547,21 @@ pre {
   font-weight: 500;
   line-height: 1.5;
   padding: 7px 24px 7px 16px;
+  color: #5c6975;
+  text-decoration: none;
+}
+
+.rightSideBarUL li a.active {
+  color: #663399;
+  border-color: rgb(230,236,241) !important;
+  border-style: solid none solid solid;
+  border-width: 1px 0px 1px 1px;
+  background-color: #fff;
+}
+
+.rightSideBarUL li a svg {
+  float: right;
+  margin-right: 1rem;
 }
 
 .hideFrontLine .collapser {

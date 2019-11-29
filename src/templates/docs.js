@@ -2,8 +2,7 @@ import React, { Component } from "react";
 import Helmet from "react-helmet";
 import { graphql } from "gatsby";
 import MDXRenderer from "gatsby-plugin-mdx/mdx-renderer";
-import styled, { injectGlobal } from "react-emotion";
-import { Layout, Link } from "$components";
+import { Layout } from "$components";
 import NextPrevious from "../components/NextPrevious";
 import { SharingButtons } from "../components/SharingButtons";
 import "../components/styles.css";
@@ -11,64 +10,7 @@ import config from "../../config";
 
 const forcedNavOrder = config.sidebar.forcedNavOrder;
 
-injectGlobal`
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
-  html, body {
-    font-family: -apple-system,
-      BlinkMacSystemFont,
-      "Segoe UI",
-      "Roboto",
-      "Roboto Light",
-      "Oxygen",
-      "Ubuntu",
-      "Cantarell",
-      "Fira Sans",
-      "Droid Sans",
-      "Helvetica Neue",
-      sans-serif,
-      "Apple Color Emoji",
-      "Segoe UI Emoji",
-      "Segoe UI Symbol";
-
-    font-size: 16px;
-  }
-
-  a {
-    transition: color 0.15s;
-    color: #663399;
-  }
-`;
-
-const Edit = styled("div")`
-  padding: 1rem 1.5rem;
-  text-align: right;
-
-  a {
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 1em;
-    text-decoration: none;
-    color: #555;
-    border: 1px solid rgb(211, 220, 228);
-    cursor: pointer;
-    border-radius: 3px;
-    transition: all 0.2s ease-out 0s;
-    text-decoration: none;
-    color: rgb(36, 42, 49);
-    background-color: rgb(255, 255, 255);
-    box-shadow: rgba(116, 129, 141, 0.1) 0px 1px 1px 0px;
-    height: 30px;
-    padding: 5px 16px;
-    &:hover {
-      background-color: rgb(245, 247, 249);
-    }
-  }
-`;
+// const Edit = ({children}) => <div className="layout-edit">{children}</div>;
 
 export default class MDXRuntimeTest extends Component {
   render() {
@@ -152,11 +94,10 @@ export default class MDXRuntimeTest extends Component {
           <h1 className="title">{mdx.fields.title}</h1>
           <h6 className="subtitle">{mdx.frontmatter.date || ""}</h6>
           {/* <Edit className={'mobileView'}>
-            <Link className={'gitBtn'} to={`${docsLocation}/${mdx.parent.relativePath}`}>
+            <Link className={'gitBtn'} to={`${docsLocation}/tree/master/content/${mdx.parent.relativePath}`}>
               <img src={gitHub} alt={'Github logo'} /> Edit on GitHub
             </Link>
           </Edit> */}
-          
         </div>
         <div style={{ paddingLeft: 20 }} className="visible-xs">
             <SharingButtons small message={mdx.fields.title} />
