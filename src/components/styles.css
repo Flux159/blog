@@ -407,6 +407,16 @@ pre {
   color: #9daab6;
 }
 
+.rightShareTitle {
+  font-size: 10px;
+  line-height: 1;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  padding: 7px 24px 7px 16px;
+  color: #9daab6;
+}
+
 .rightSideBarUL {
   margin-top: 32px;
 }
