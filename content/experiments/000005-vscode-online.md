@@ -126,9 +126,9 @@ WantedBy=multi-user.target
 Run the following to restart vnc:
 
 ```shell
+vncserver -kill :1
 sudo systemctl daemon-reload
 sudo systemctl enable vncserver@1.service
-vncserver -kill :1
 sudo systemctl start vncserver@1
 sudo systemctl status vncserver@1
 ```
