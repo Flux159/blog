@@ -65,7 +65,7 @@ Note: Replace `USER=suyogs` with the username you want to setup. When you add yo
 
 ```shell
 USER=suyogs
-sudo apt update && sudo apt install -y ubuntu-desktop tightvncserver gnome-panel gnome-settings-daemon metacity nautilus gnome-terminal
+sudo apt update && sudo apt install -y ubuntu-desktop tightvncserver gnome-panel gnome-settings-daemon metacity nautilus gnome-terminal build-essential
 sudo adduser $USER
 sudo usermod -aG sudo $USER
 ```
@@ -194,6 +194,7 @@ sudo apt-get install -y nodejs
 curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 sudo apt update && sudo apt install yarn
+npm config set python python2.7
 sudo vim /etc/sysctl.conf
 ```
 
@@ -228,6 +229,18 @@ jupyter notebook --ip=0.0.0.0
 ```
 
 Jupyter will give a `?token=TOKEN` url in the logs, you should be able to access your Jupyter instance at `http://YOUR_PUBLIC_IP:8888?token=TOKEN` and work with notebooks there.
+
+# Getting Postgres
+
+Getting postgres setup for local database connections
+```shell
+sudo apt-get install -y postgresql
+```
+
+You should then be able to access a database locally using:
+```
+sudo -u postgres psql
+```
 
 # VNC
 
