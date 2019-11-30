@@ -15,7 +15,7 @@ const forcedNavOrder = config.sidebar.forcedNavOrder;
 export default class MDXRuntimeTest extends Component {
   render() {
     const { data } = this.props;
-    const {
+    let {
       allMdx,
       mdx,
       site: {
@@ -62,7 +62,7 @@ export default class MDXRuntimeTest extends Component {
 
     if (mdx == null) {
       mdx = {
-        fontmatter: {},
+        frontmatter: {},
         fields: {},
       };
     }

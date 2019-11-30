@@ -6,7 +6,7 @@ metaTitle: "VSCode Online with AWS"
 metaDescription: "Working with a remote devserver on AWS with VSCode Online"
 ---
 
-I'm writing this blog post using VSCode online using a hosted environment on AWS.
+I'm writing this blog post using [VSCode Online](https://visualstudio.microsoft.com/services/visual-studio-online/) using a hosted environment on AWS.
 
 This is pretty awesome as it lets me use VSCode from a webbrowser to connect to a VM running on my AWS account.
 
@@ -20,8 +20,8 @@ This post goes over how I set it up, what works, and how I believe that remote d
 - Should definitely be automated so that a disconnect from the environment can run a command to shutdown the instance. Should also be able to run a lambda or Azure function in order to "boot up" a self-hosted instance too (saves on costs significantly)
 - Can be automated so that load from a setup image, does a git pull (if necessary), has environment already configured
 - Not local & on a virtual machine, so any issues with client computer (hard drive breaks, etc.) won't happen. Also if VM gets corrupted / in a bad state, just make a new VM from a backed up image
-- Potential: Access from phone in the *near* future.
-- Potential: Github "edit in vscode" that will spawn an environment automatically and let me edit the repository with an IDE like experience.
+- **Potentially** Access from phone in the *near* future.
+- **Potentially** Github "edit in vscode" that will spawn an environment automatically and let me edit the repository with an IDE like experience.
 
 # Setup
 
@@ -34,10 +34,10 @@ This post goes over how I set it up, what works, and how I believe that remote d
 - Use the command palette and follow the instructions to setup a local environment
 - Note that you need to have a vscode online account AND an Azure account here
 - The azure account also needs to have a subscription "plan" for VSCode online even though you won't be using their environments
-- Once environment is setup, you want to connect to the environment from online.visualstudio.com 
+- Once environment is setup, you want to connect to the environment from https://online.visualstudio.com
 - In the environment, you'll automatically connect to the folder you specified as the workspace
 - Change the max file watchers so that VSCode doesn't complain (and node/yarn don't complain)
-- I wanted to work with a Gatsby app, and realized that a few things were different in the Ubuntu environment than on my Mac (python is defaulted to python 2, file watchers, no node.js / yarn until installed, etc.). These changes are for a different article on working with Node.js apps in Ubuntu.
+- I wanted to work with a Nodejs app and also do Jupyter development, so I also set those up.
 
 # Step by Step
 
@@ -47,7 +47,7 @@ Systematic way of setting up an Ubuntu Environment with xfce4, Chrome, VSCode, N
 
 Get an instance - I got a t3.medium with 2 VCPUs and 4GB RAM. I also attached a 32GB SSD Disk to the VM.
 
-Make sure Security Group is setup properly (inbound connections from these ports should be allowed):
+Make sure the Security Group is setup properly (inbound connections from these ports should be allowed):
 ```
 Ports 8000-8001, 9000 for web development purposes 
 Port 8888 for Jupyter
@@ -157,6 +157,8 @@ mkdir -p ~/Projects
 code --install-extension ms-vsonline.vsonline
 ```
 
+At this point, you should be able to open up VNC, open VSCode and connect to your Azure account and VSOnline account. In addition, you want to [Register your local environment](https://docs.microsoft.com/en-us/visualstudio/online/how-to/vscode#self-hosted) so that it shows up at https://online.visualstudio.com
+
 # Getting NodeJS and Yarn
 
 This will get NodeJS and Yarn and update /etc/sysctl.conf so you don't run into file watcher errors from yarn or VSCode.
@@ -241,7 +243,7 @@ Right now there's some usability issues that could be resolved:
 # The future
 
 - Instant Github integration like Github Actions - "edit this repo" button built into Github that will automatically provision an environment, clone the repo, and start a build/prebuild command based on a repo's .workspace or .vsonline directory (similar to .github right now)
-- Future: Coding from my phone (iPhone) - not necesarily on my phone's touchscreen, but with my phone connected via USB-C to a 4k monitor, bluetooth connection to keyboard & trackpad. Samsung already kinda has something like this with DeX, but this isn't trying to shoehorn another OS onto your phone - this should just be iOS (or Android), I should be able to go to online.visualstudio.com and connect to my devserver. Essentially I wouldn't need a laptop because I could carry my computing device in my pocket and connect to a higher resolution, larger screen whenever/where-ever I need to.
+- Future: Coding from my phone (iPhone) - not necesarily on my phone's touchscreen, but with my phone connected via USB-C to a 4k monitor, bluetooth connection to keyboard & trackpad. Samsung already kinda has something like this with DeX, but this isn't trying to shoehorn another OS onto your phone - this should just be iOS (or Android), I should be able to go to https://online.visualstudio.com and connect to my devserver. Essentially I wouldn't need a laptop because I could carry my computing device in my pocket and connect to a higher resolution, larger screen whenever/where-ever I need to.
 
 # References
 
