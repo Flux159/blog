@@ -17,6 +17,10 @@ This post goes over how I set it up, what works, and how I believe that remote d
 # Why Remote Development
 
 - Can access from anywhere
+- A single browser for all your apps (VSCode, Terminal, Google, etc.)
+- Save on costs & pay for what you use - if you need a larger machine, just shutdown the instance, get a bigger one for a few hours. Works extremely well with the On Demand / Spot instance model of pricing (if backups & temporary non-committed state handled seamlessly)
+- Should definitely be automated so that a disconnect from the environment can run a command to shutdown the instance. Should also be able to run a lambda or Azure function in order to "boot up" a self-hosted instance too (saves on costs significantly)
+- Can be automated so that load from a setup image, does a git pull (if necessary), has environment already configured
 - Not local & on a virtual machine, so any issues with client computer (hard drive breaks, etc.) won't happen. Also if VM gets corrupted / in a bad state, just make a new VM from a backed up image
 - Potential: Access from phone in the *near* future.
 
@@ -49,3 +53,7 @@ Reconnections and loss of connection - I had an issue where I think the VNCServe
 
 - Instant Github integration like Github Actions - "edit this repo" button built into VSCode that will automatically provision an environment, clone the repo, and start a build/prebuild command based on a repo's .workspace or .vsonline directory (similar to .github right now)
 - Future: Coding from my phone (iPhone) - not necesarily on my phone's touchscreen, but with my phone connected via USB-C to a 4k monitor, bluetooth connection to keyboard & trackpad. Samsung already kinda has something like this with DeX, but this isn't trying to shoehorn another OS onto your phone - this should just be iOS (or Android), I should be able to go to online.visualstudio.com and connect to my devserver. Essentially I wouldn't need a laptop because I could carry my computing device in my pocket and connect to a higher resolution, larger screen whenever/where-ever I need to.
+
+# References
+
+TODO: Add Reference links after cleaning up post
