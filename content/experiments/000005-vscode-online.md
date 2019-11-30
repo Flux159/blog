@@ -57,13 +57,15 @@ Port 5901 for VNC
 
 Note that I usually limit the security group to only my IP since this is intended to be a development machine.
 
-# Getting xfce4 and VNC setup on Ubuntu 18.04 Server
+# Getting gnome-desktop and VNC setup on Ubuntu 18.04 Server
+
+TODO: Update to use gnome-desktop rather than xfce4 which has odd bugs that cause it to crash frequently & the VNC connection needs to be re-established / VSCode environment needs to be refreshed.
 
 Note: Replace `USER=suyogs` with the username you want to setup. When you add your user, it will ask for a password that will be used for authentication.
 
 ```shell
 USER=suyogs
-sudo apt update && sudo apt install -y xfce4 xfce4-goodies tightvncserver
+sudo apt update && sudo apt install -y ubuntu-desktop tightvncserver gnome-panel gnome-settings-daemon metacity nautilus gnome-terminal
 sudo adduser $USER
 sudo usermod -aG sudo $USER
 ```
@@ -81,11 +83,30 @@ mv ~/.vnc/xstartup ~/.vnc/xstartup.bak
 vim ~/.vnc/xstartup
 ```
 
+Make some common directories for your user:
+```
+mkdir -p ~/Documents ~/Desktop ~/Downloads ~/Music ~/Pictures ~/Movies ~/Projects
+```
+
 In the `~/.vnc/xstartup` file, add the following:
 ```shell
 #!/bin/bash
-xrdb $HOME/.Xresources
-startxfce4 &
+
+export XKL_XMODMAP_DISABLE=1
+unset SESSION_MANAGER
+unset DBUS_SESSION_BUS_ADDRESS
+
+[ -x /etc/vnc/xstartup ] && exec /etc/vnc/xstartup
+[ -r $HOME/.Xresources ] && xrdb $HOME/.Xresources
+xsetroot -solid grey
+vncconfig -iconic &
+
+gnome-session &
+gnome-panel &
+gnome-settings-daemon &
+metacity &
+nautilus &
+# gnome-terminal &
 ```
 
 Then run this in your `$USER`'s shell:
@@ -96,6 +117,11 @@ vncserver
 ```
 
 At this point, you should be able to connect to VNC on your Ubuntu machine by using a VNC Client (see below for clients on Mac and iPhone) and connecting to `vnc://YOUR_PUBLIC_IP:5901`. The next step will setup VNC to be a systemctl service that will spawn on boot.
+
+To figure out your public ip from the terminal, you can just use the following command:
+```shell
+curl ifconfig.co
+```
 
 ```shell
 sudo vim /etc/systemd/system/vncserver@.service
@@ -140,20 +166,19 @@ You should now be able to reboot your machine and VNC will be setup on boot.
 ```shell
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo dpkg -i google-chrome-stable_current_amd64.deb
-sudo apt-get install -y fonts-liberation libappindicator3-1
-sudo apt --fix-broken install
-sudo apt-get install -y fonts-liberation libappindicator3-1
-sudo dpkg -i google-chrome-stable_current_amd64.deb
 rm google-chrome-stable_current_amd64.deb 
 wget -O code.deb https://go.microsoft.com/fwlink/?LinkID=760868
 sudo dpkg -i code.deb 
 rm code.deb 
+```
+
+Fix an issue around Code not booting in remote VNC/X sessions and install the VSOnline extension:
+```
 cd /usr/lib/x86_64-linux-gnu/
 cp libxcb.so.1 libxcb.so.1.bak
 sudo cp libxcb.so.1 libxcb.so.1.bak
 sudo sed -i 's/BIG-REQUESTS/_IG-REQUESTS/' libxcb.so.1
 cd ~
-mkdir -p ~/Projects
 code --install-extension ms-vsonline.vsonline
 ```
 
@@ -171,6 +196,8 @@ echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/source
 sudo apt update && sudo apt install yarn
 sudo vim /etc/sysctl.conf
 ```
+
+Do the following change to sysctl to fix a common file watcher issue in yarn / vscode:
 
 In the `/etc/sysctl.conf` File, add the following to the end of the file:
 

@@ -64,6 +64,7 @@ export default class MDXRuntimeTest extends Component {
       mdx = {
         frontmatter: {},
         fields: {},
+        body: '',
       };
     }
 
