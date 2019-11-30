@@ -59,10 +59,10 @@ Note that I usually limit the security group to only my IP since this is intende
 
 # Getting xfce4 and VNC setup on Ubuntu 18.04 Server
 
-Note: Replace `$USER=suyogs` with the username you want to setup. When you add your user, it will ask for a password that will be used for authentication.
+Note: Replace `USER=suyogs` with the username you want to setup. When you add your user, it will ask for a password that will be used for authentication.
 
 ```shell
-$USER=suyogs
+USER=suyogs
 sudo apt update && sudo apt install -y xfce4 xfce4-goodies tightvncserver
 sudo adduser $USER
 sudo usermod -aG sudo $USER
