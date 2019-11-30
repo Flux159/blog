@@ -60,6 +60,13 @@ export default class MDXRuntimeTest extends Component {
         }
       });
 
+    if (mdx == null) {
+      mdx = {
+        fontmatter: {},
+        fields: {},
+      };
+    }
+
     // meta tags
     const metaTitle = mdx.frontmatter.metaTitle;
     const metaDescription = mdx.frontmatter.metaDescription;
@@ -68,7 +75,7 @@ export default class MDXRuntimeTest extends Component {
       config.gatsby.pathPrefix !== "/"
         ? canonicalUrl + config.gatsby.pathPrefix
         : canonicalUrl;
-    canonicalUrl = canonicalUrl + mdx.fields.slug;
+    canonicalUrl = canonicalUrl + (mdx.fields.slug);
 
     return (
       <Layout {...this.props}>
