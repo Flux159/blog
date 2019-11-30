@@ -284,6 +284,7 @@ Right now there's some usability issues that could be resolved:
 
 - Instant Github integration like Github Actions - "edit this repo" button built into Github that will automatically provision an environment, clone the repo, and start a build/prebuild command based on a repo's .workspace or .vsonline directory (similar to .github right now)
 - Future: Coding from my phone (iPhone) - not necesarily on my phone's touchscreen, but with my phone connected via USB-C to a 4k monitor, bluetooth connection to keyboard & trackpad. Samsung already kinda has something like this with DeX, but this isn't trying to shoehorn another OS onto your phone - this should just be iOS (or Android), I should be able to go to https://online.visualstudio.com and connect to my devserver. Essentially I wouldn't need a laptop because I could carry my computing device in my pocket and connect to a higher resolution, larger screen whenever/where-ever I need to.
+- Visual Studio online doesnt officially support Safari mobile yet
 
 # References
 
