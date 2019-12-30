@@ -36,6 +36,20 @@ For this guide, we’ll be setting up a g4dn.xlarge with Windows Server 2019. Af
 - Download Steam and login to your account
 - Download Hamachi VPN on your server (will also need to download & install on your clients)
 - Use Steam Link to stream games to your client
+- Disable Firewall, Install .NET 3.5, Install Razer Sound 7.1
+- On the host itself, turn off 'Dynamically adjust capture resolution to improve performance' and 'Use NVFBC capture on NVIDIA GPU' and it started to work!! I left 'Enable hardware encoding' options on and 'Change desktop resolution to match streaming client' off. Works now.
+
+- Create a logout.bat batch script that has the following:
+```bat
+# This script locks the server, disconnects you from the servers RDP session
+# sending the session back to console so hamachi does not get disconnected
+
+tscon 0 /dest:console
+tscon 1 /dest:console
+tscon 2 /dest:console
+Rundll32.exe User32.dll,LockWorkStation
+```
+Then connect via Steam Streaming when RDP isn't connected. Apparently Steam uses the same connection or something and errors out. Note that you need to ensure that you have a good connection to the server.
 
 Optional:
 - Since this is a full fledged remote workspace, you can download and use other GPU based tools (Blender, Maya, Photoshop) via RDP - although lag may be more noticeable through RDP and it might be better to do local development and use the remote server for rendering or when you need more compute
@@ -47,3 +61,6 @@ TODO: From here
 ## References
 
 - https://lg.io/2015/07/05/revised-and-much-faster-run-your-own-highend-cloud-gaming-service-on-ec2.html - Primarily used this and adapted for Windows Server 2019 and newer Nvidia drivers
+- https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/install-nvidia-driver-windows.html#nvidia-grid-g4 - Main AWS Documentation Page for installing windows drivers
+- https://steamcommunity.com/groups/homestream/discussions/0/1318835718943402340/ - Fixing some steam link settings
+
