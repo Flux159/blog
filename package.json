@@ -53,11 +53,11 @@
   "license": "MIT",
   "main": "n/a",
   "scripts": {
-    "start": "gatsby develop",
+    "start": "gatsby develop --host=0.0.0.0",
     "develop": "concurrently --kill-others \"cd static && python -m http.server 9000\" \"gatsby develop\"",
-    "vmdevelop": "gatsby develop --host=0.0.0.0",
     "build": "gatsby build --prefix-paths",
-    "runbuild": "cd ./public && python -m http.server"
+    "runbuild": "cd ./public && python -m http.server",
+    "ip": "curl http://169.254.169.254/latest/meta-data/public-ipv4 && echo ''"
   },
   "devDependencies": {
     "concurrently": "^5.0.0",
