@@ -63,4 +63,4 @@ TODO: From here
 - https://lg.io/2015/07/05/revised-and-much-faster-run-your-own-highend-cloud-gaming-service-on-ec2.html - Primarily used this and adapted for Windows Server 2019 and newer Nvidia drivers
 - https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/install-nvidia-driver-windows.html#nvidia-grid-g4 - Main AWS Documentation Page for installing windows drivers
 - https://steamcommunity.com/groups/homestream/discussions/0/1318835718943402340/ - Fixing some steam link settings
-
+- Apparently Parsec was following a similar guide (just automated): https://github.com/jamesstringerparsec/Parsec-Cloud-Preparation-Tool/blob/master/PostInstall/PostInstall.ps1
