@@ -43,3 +43,7 @@ Optional:
 ## Guide
 
 TODO: From here
+
+## References
+
+- https://lg.io/2015/07/05/revised-and-much-faster-run-your-own-highend-cloud-gaming-service-on-ec2.html - Primarily used this and adapted for Windows Server 2019 and newer Nvidia drivers
