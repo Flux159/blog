@@ -76,7 +76,7 @@ IE on Windows Server has some insane restrictions on website content and downloa
 
 ![makechromedefault](/images/windows_gaming_aws/makechromedefault.png)
 
-## Download Nvidia Graphics Drivers, GRID drivers, install and configure
+## Install Nvidia Graphics Drivers, GRID drivers
 
 Following the [AWS Guide](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/install-nvidia-driver-windows.html), download the [Nvidia graphics drivers](https://www.nvidia.com/Download/Find.aspx) and [GRID drivers](https://s3.amazonaws.com/nvidia-gaming/GRID-436.30-vGaming-Windows-Guest-Drivers.zip) for your G4 machine. (The Nvidia Drivers are for T4 GPUs).
 
@@ -100,7 +100,7 @@ Make sure to also configure the GRID drivers appropriately according the the [AW
 
 ![gridswcertpublic](/images/windows_gaming_aws/gridswcertpublic.png)
 
-## Disable Windows Basic Display Driver and install Media Foundation, QWAVE, and other Windows Features
+## Disable Windows Basic Display Driver and install Windows Features
 
 Before restarting the VM, configure and install some windows settings and features. First, disable the windows basic display driver via device manager.
 
@@ -110,7 +110,9 @@ Before restarting the VM, configure and install some windows settings and featur
 
 ![disablebasicdisplay](/images/windows_gaming_aws/disablebasicdisplay.png)
 
-Then install some required Windows Features from Server Manager. Specifically after opening Server Manager, you want to use "Local Server", and scroll all the way to the bottom to get to the "Roles and Features" section. In "Tasks", you'll get a button to "Add Roles and Features". You want to add at least Media Foundation, QWAVE, and .NET 3.5.
+Then install some required Windows Features from Server Manager. Specifically after opening Server Manager, you want to use "Local Server", and scroll all the way to the bottom to get to the "Roles and Features" section. In "Tasks", you'll get a button to "Add Roles and Features". 
+
+You want to add at least Media Foundation, QWAVE (Quality Windows Audio Video Experience), and .NET 3.5.
 
 ![servermanager](/images/windows_gaming_aws/servermanager.png)
 
