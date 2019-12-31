@@ -24,9 +24,9 @@ For this guide, we’ll be setting up a g4dn.xlarge with Windows Server 2019. Af
 
 ## Guide
 
-### Get an AWS Windows VM
+## Get an AWS Windows VM
 
-- Login to your [AWS Console](https://console.aws.amazon.com/ec2/home?region=us-east-1#Instances:sort=instanceId) and start a new Windows Instance (On Demand) with a g4dn.xlarge VM. Add a 128GB EBS Drive to the machine as well
+- Login to your [AWS Console](https://console.aws.amazon.com/ec2/home?region=us-east-1#Instances:sort=instanceId) and start a new Windows Instance (On Demand) with a g4dn.xlarge VM. Add a 128GB EBS Drive to the machine as well.
 
 ![launchinstance](/images/windows_gaming_aws/launchinstance.png)
 
@@ -54,7 +54,7 @@ When you launch the instance, you want to click on it in the AWS UI and use the 
 
 Connect using your remote desktop client and get the password from the AWS connect modal.
 
-![remotedesktop](/images/windows_gaming_aws/remotdesktop.png)
+![remotedesktop](/images/windows_gaming_aws/remotedesktop.png)
 
 Note that if you see this error message when retrieving your password, you usually just need to wait a few minutes while the VM is initializing.
 
@@ -64,19 +64,85 @@ Once you've connected via Remote desktop to your Windows Machine, you should see
 
 ![ec2windowsdesktop](/images/windows_gaming_aws/ec2windowsdesktop.png)
 
-### Disable IE Restrictions and get Chrome
+## Disable IE Restrictions and get Chrome
 
+IE on Windows Server has some insane restrictions on website content and downloads. Open IE the first time and make sure to disable "Internet Explorer Enhanced Security Configuration" in Server Manager settings in order to download Chrome and set it up as your default browser.
 
+![ieawful](/images/windows_gaming_aws/ieawful.png)
 
-### Download Nvidia Graphics Drivers, GRID drivers, install and configure display settings
+![servermanageriesettings0](/images/windows_gaming_aws/servermanageriesettings0.png)
 
-### Download Steam, Hamachi, Blender
+![servermanageriesettings](/images/windows_gaming_aws/servermanageriesettings.png)
 
-### Disable Windows Firewall, Install Windows Features, Install .NET 3.5, Install Razer Sound 7.1
+![makechromedefault](/images/windows_gaming_aws/makechromedefault.png)
 
-### Steam settings for Remote play on host
+## Download Nvidia Graphics Drivers, GRID drivers, install and configure
 
-### Create logout.bat that will log out of remote desktop, but keep Hamachi running (needed since Steam Link crashes while still connected to RDP)
+Following the [AWS Guide](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/install-nvidia-driver-windows.html), download the [Nvidia graphics drivers](https://www.nvidia.com/Download/Find.aspx) and [GRID drivers](https://s3.amazonaws.com/nvidia-gaming/GRID-436.30-vGaming-Windows-Guest-Drivers.zip) for your G4 machine. (The Nvidia Drivers are for T4 GPUs).
+
+![nvidiadriverst4](/images/windows_gaming_aws/nvidiadriverst4.png)
+
+![nvidiadriversinstalled](/images/windows_gaming_aws/nvidiadriversinstalled.png)
+
+Make sure to also configure the GRID drivers appropriately according the the [AWS Guide](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/install-nvidia-driver-windows.html)
+
+![extractgrid](/images/windows_gaming_aws/extractgrid.png)
+
+![gridinstalled](/images/windows_gaming_aws/gridinstalled.png)
+
+![awsguidegridcomplete](/images/windows_gaming_aws/awsguidegridcomplete.png)
+
+![registryeditor](/images/windows_gaming_aws/registryeditor.png)
+
+![nvidianewdword](/images/windows_gaming_aws/nvidianewdword.png)
+
+![nvidiaeditdword](/images/windows_gaming_aws/nvidiaeditdword.png)
+
+![gridswcertpublic](/images/windows_gaming_aws/gridswcertpublic.png)
+
+## Disable Windows Basic Display Driver and install Media Foundation, QWAVE, and other Windows Features
+
+Before restarting the VM, configure and install some windows settings and features. First, disable the windows basic display driver via device manager.
+
+![controlpanel](/images/windows_gaming_aws/controlpanel.png)
+
+![devicemanager](/images/windows_gaming_aws/devicemanager.png)
+
+![disablebasicdisplay](/images/windows_gaming_aws/disablebasicdisplay.png)
+
+Then install some required Windows Features from Server Manager. Specifically after opening Server Manager, you want to use "Local Server", and scroll all the way to the bottom to get to the "Roles and Features" section. In "Tasks", you'll get a button to "Add Roles and Features". You want to add at least Media Foundation, QWAVE, and .NET 3.5.
+
+![servermanager](/images/windows_gaming_aws/servermanager.png)
+
+![localserveraddfeature](/images/windows_gaming_aws/localserveraddfeature.png)
+
+![mediafoundationqwave](/images/windows_gaming_aws/mediafoundationqwave.png)
+
+While you're installing these features, make sure to also [disable Windows Firewall](https://support.microsoft.com/en-us/help/4028544/windows-10-turn-windows-defender-firewall-on-or-off) so that you can accept incoming connections on the ports we've opened for Steam.
+
+Once you've installed all the required drivers and Windows Features, restart the VM before proceeding to the next section.
+
+## Download Steam, Hamachi, Blender, Razer Sound 7.1
+
+Download and Install [Steam](https://store.steampowered.com/about/), [Hamachi](https://www.vpn.net), [Blender](https://www.blender.org/), and [Razer Sound 7.1](https://www.razer.com/7.1-surround-sound). Note that you only need to install Razer Sound, you don't need to log in (this is to provide audio drivers).
+
+Login to the same Steam account on your VM and on your client. Also for Hamachi, make sure that your VM and Client are connected to the same VPN group.
+
+![steam](/images/windows_gaming_aws/steam.png)
+
+![hamachi](/images/windows_gaming_aws/hamachi.png)
+
+![blender](/images/windows_gaming_aws/blender.png)
+
+## Steam settings for Remote play on host
+
+When logged into Steam on the remote VM, go to Steam Settings -> Remote Play -> Advanced Host Options.
+
+[Disable](https://steamcommunity.com/groups/homestream/discussions/0/1318835718943402340/) "Dynamically adjust screen capture" and "Use NVFBC capture on NVIDIA GPU" if you have issues with games crashing on startup.
+
+![steamoptions](/images/windows_gaming_aws/steamoptions.png)
+
+## Create logout.bat that will log out of remote desktop, but keep Hamachi running (needed since Steam Link crashes while still connected to RDP)
 
 - Create a logout.bat batch script that has the following:
 ```bat
@@ -90,18 +156,13 @@ Rundll32.exe User32.dll,LockWorkStation
 ```
 Then connect via Steam Streaming when RDP isn't connected. Apparently Steam uses the same connection or something and errors out. Note that you need to ensure that you have a good connection to the server.
 
-### Stream Games with Steam and profit!
+Now you can stream games with steam and profit!
 
-- Disable Edge download restrictions, download Chrome, get Nvidia Graphics Drivers and GRID drivers (restart after installation)
-- Disable Windows Basic Display driver
-- Download Steam and login to your account
-- Download Hamachi VPN on your server (will also need to download & install on your clients)
-- Use Steam Link to stream games to your client
-- Disable Firewall, Install .NET 3.5, Install Razer Sound 7.1
-- On the host itself, turn off 'Dynamically adjust capture resolution to improve performance' and 'Use NVFBC capture on NVIDIA GPU' and it started to work!! I left 'Enable hardware encoding' options on and 'Change desktop resolution to match streaming client' off. Works now.
+## Remote Workspace
 
 Optional:
-- Since this is a full fledged remote workspace, you can download and use other GPU based tools (Blender, Maya, Photoshop) via RDP - although lag may be more noticeable through RDP and it might be better to do local development and use the remote server for rendering or when you need more compute
+- Since this is a full fledged remote workspace, you can download and use other GPU based tools (Blender, Maya, Photoshop) via RDP - although lag may be more noticeable through RDP and it might be better to do local development and use the remote server for rendering or when you need more compute.
+- This is also a fully useable Windows Environment if you need to test windows specific features or use Windows only tools.
 
 ## References
 
