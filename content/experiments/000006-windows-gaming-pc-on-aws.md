@@ -20,24 +20,63 @@ These machines actually use [Nvidia T4](https://www.nvidia.com/en-us/data-center
 
 ## Operating System and Specs
 
-For this guide, we’ll be setting up a g4dn.xlarge with Windows Server 2019. After using Remote Desktop to authenticate to the server, we’ll download Nvidia drivers, setup some common applications we need and get Steam Link working. A brief outline of what we’ll do is below:
+For this guide, we’ll be setting up a g4dn.xlarge with Windows Server 2019. After using Remote Desktop to authenticate to the server, we’ll download Nvidia drivers, setup some common applications we need and get Steam Link working.
 
-- Login to AWS Console and start a new Windows Instance (On Demand) with a g4dn.xlarge VM. Add a 128GB EBS Drive to the machine as well
-- Setup a Security Group with the following ports open: 
-    - TCP 22 for SSH
-    - TCP 3389 for RDP
-    - TCP 27036 for Steam TCP 1
-    - TCP 27037 for Steam TCP 2
-    - UDP 27031 for Steam UDP 1
-    - UDP 27036 for Steam UDP 2
-- Once you get the password for Remote Desktop, login using RDP
-- Disable Edge download restrictions, download Chrome, get Nvidia Graphics Drivers and GRID drivers (restart after installation)
-- Disable Windows Basic Display driver
-- Download Steam and login to your account
-- Download Hamachi VPN on your server (will also need to download & install on your clients)
-- Use Steam Link to stream games to your client
-- Disable Firewall, Install .NET 3.5, Install Razer Sound 7.1
-- On the host itself, turn off 'Dynamically adjust capture resolution to improve performance' and 'Use NVFBC capture on NVIDIA GPU' and it started to work!! I left 'Enable hardware encoding' options on and 'Change desktop resolution to match streaming client' off. Works now.
+## Guide
+
+### Get an AWS Windows VM
+
+- Login to your [AWS Console](https://console.aws.amazon.com/ec2/home?region=us-east-1#Instances:sort=instanceId) and start a new Windows Instance (On Demand) with a g4dn.xlarge VM. Add a 128GB EBS Drive to the machine as well
+
+![launchinstance](/images/windows_gaming_aws/launchinstance.png)
+
+Choose the Windows Server 2019 AMI with a g4dn vm.
+
+![windowsserver2019ami](/images/windows_gaming_aws/windowsserver2019ami.png)
+
+![g4dnvm](/images/windows_gaming_aws/g4dnvm.png)
+
+Add a 128GB volume (or more) as your root volume. Feel free to resize to whatever size you need for your games. Note that since the vm is on AWS, steam downloads will generally be extremely fast (50MB/s +), so you could even get a smaller drive and just delete items as needed.
+
+![addvolume](/images/windows_gaming_aws/addvolume.png)
+
+When adding a security group, make sure to make the following ports open along with TCP 22 for SSH:
+
+![ports1](/images/windows_gaming_aws/ports1.png)
+![ports2](/images/windows_gaming_aws/ports2.png)
+![ports3](/images/windows_gaming_aws/ports3.png)
+
+When you launch the instance, you want to click on it in the AWS UI and use the "Connect" button to get Remote Desktop connection and password information.
+
+![connect](/images/windows_gaming_aws/connectbuttonaws.png)
+
+![downloadremotedesktop](/images/windows_gaming_aws/downloadremotefile.png)
+
+Connect using your remote desktop client and get the password from the AWS connect modal.
+
+![remotedesktop](/images/windows_gaming_aws/remotdesktop.png)
+
+Note that if you see this error message when retrieving your password, you usually just need to wait a few minutes while the VM is initializing.
+
+![passwordnotavailable](/images/windows_gaming_aws/windowspasswordnotavailableaws.png)
+
+Once you've connected via Remote desktop to your Windows Machine, you should see a virtual desktop
+
+![ec2windowsdesktop](/images/windows_gaming_aws/ec2windowsdesktop.png)
+
+### Disable IE Restrictions and get Chrome
+
+
+
+### Download Nvidia Graphics Drivers, GRID drivers, install and configure display settings
+
+### Download Steam, Hamachi, Blender
+
+### Disable Windows Firewall, Install Windows Features, Install .NET 3.5, Install Razer Sound 7.1
+
+### Steam settings for Remote play on host
+
+### Create logout.bat that will log out of remote desktop, but keep Hamachi running (needed since Steam Link crashes while still connected to RDP)
 
 - Create a logout.bat batch script that has the following:
 ```bat
@@ -51,12 +90,18 @@ Rundll32.exe User32.dll,LockWorkStation
 ```
 Then connect via Steam Streaming when RDP isn't connected. Apparently Steam uses the same connection or something and errors out. Note that you need to ensure that you have a good connection to the server.
 
+### Stream Games with Steam and profit!
+
+- Disable Edge download restrictions, download Chrome, get Nvidia Graphics Drivers and GRID drivers (restart after installation)
+- Disable Windows Basic Display driver
+- Download Steam and login to your account
+- Download Hamachi VPN on your server (will also need to download & install on your clients)
+- Use Steam Link to stream games to your client
+- Disable Firewall, Install .NET 3.5, Install Razer Sound 7.1
+- On the host itself, turn off 'Dynamically adjust capture resolution to improve performance' and 'Use NVFBC capture on NVIDIA GPU' and it started to work!! I left 'Enable hardware encoding' options on and 'Change desktop resolution to match streaming client' off. Works now.
+
 Optional:
 - Since this is a full fledged remote workspace, you can download and use other GPU based tools (Blender, Maya, Photoshop) via RDP - although lag may be more noticeable through RDP and it might be better to do local development and use the remote server for rendering or when you need more compute
-
-## Guide
-
-TODO: From here
 
 ## References
 
