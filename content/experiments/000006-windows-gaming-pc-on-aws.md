@@ -142,9 +142,15 @@ When logged into Steam on the remote VM, go to Steam Settings -> Remote Play -> 
 
 ![steamoptions](/images/windows_gaming_aws/steamoptions.png)
 
-## Create logout.bat that will log out of remote desktop, but keep Hamachi running (needed since Steam Link crashes while still connected to RDP)
+## Install Steam Games you want to play
 
-- Create a logout.bat batch script that has the following:
+Install the steam games you want to play on the Remote VM. Once they're installed and you have Hamachi setup, you should be able to see on your client(s) the Steam "Play"/"Install" button become a "Stream" button. Before clicking "Stream", you'll need to create a logout.bat file below and disconnect from Remote Desktop (RDP).
+
+## Create logout.bat 
+
+Create logout.bat that will log out of remote desktop, but keep Hamachi running (needed since Steam Link crashes while still connected to RDP).
+
+The logout.bat batch script should have the following code:
 ```bat
 # This script locks the server, disconnects you from the servers RDP session
 # sending the session back to console so hamachi does not get disconnected
