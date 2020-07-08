@@ -6,6 +6,10 @@ metaTitle: "VSCode Online with AWS"
 metaDescription: "Working with a remote devserver on AWS with VSCode Online"
 ---
 
+NOTE: This post is deprecated as VSCode Online added the ability to start a vscode server without a UI after rebranding to Visual Studio Codespaces.
+[Github Codespaces](https://github.com/features/codespaces/) would probably use something similar and would be a better overall experience than manually setting
+up an instance on AWS.
+
 I'm writing this blog post using [VSCode Online](https://visualstudio.microsoft.com/services/visual-studio-online/) using a hosted environment on AWS.
 
 This is pretty awesome as it lets me use VSCode from a webbrowser to connect to a VM running on my AWS account.
