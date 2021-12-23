@@ -12,15 +12,9 @@ import config from "../../../config.js";
 
 import styled, { css } from 'styled-components';
 import { PoweredBy } from "./styles"
-import { Search } from "styled-icons/fa-solid/Search"
 import Input from "./input"
 import * as hitComps from "./hitComps"
 import '../styles.css';
-
-const SearchIcon = styled(Search)`
-  width: 1em;
-  pointer-events: none;
-`
 
 const HitsWrapper = styled.div`
   display: ${props => (props.show ? `grid` : `none`)};
@@ -89,10 +83,6 @@ const focus = css`
   color: ${props => props.theme.darkBlue};
   cursor: text;
   width: 5em;
-  + ${SearchIcon} {
-    color: ${props => props.theme.darkBlue};
-    margin: 0.3em;
-  }
 `
 
 const Results = connectStateResults(

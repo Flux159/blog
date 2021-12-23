@@ -1,14 +1,7 @@
-import system from "@rebass/components/emotion";
+import React from 'react';
 
-const Container = system(
-  {
-    is: "div",
-    px: 3,
-    mx: "auto",
-    maxWidth: 1024
-  },
-  "maxWidth"
-);
-Container.displayName = "Container";
+const Container = (props) => {
+  <div style={{maxWidth: 1024}}>{props.children}</div>
+}
 
 export default Container;

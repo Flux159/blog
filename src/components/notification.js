@@ -1,29 +1,37 @@
-import styled from "react-emotion";
+import React from "react";
 
 const notificationTypes = {
   warning: {
     dark: "goldenrod",
-    light: "papayawhip"
+    light: "papayawhip",
   },
   error: {
     dark: "firebrick",
-    light: "rosybrown"
+    light: "rosybrown",
   },
   info: {
     dark: "#663399",
-    light: "#FFFFFF"
-  }
+    light: "#FFFFFF",
+  },
 };
 
 const getColor = (type = "info", shade = "dark") =>
   notificationTypes[type][shade];
 
-const Notification = styled('section')`
-  color: ${props => getColor(props.type, "light")};
-  background: ${props => getColor(props.type)};
-  width: 100%;
-  padding: 1rem;
-  text-align: center;
-`;
+const Notification = (props) => {
+  return (
+    <section
+      style={{
+        color: getColor(props.type, "light"),
+        background: getColor(props.type),
+        width: "100%",
+        padding: "1rem",
+        textAlign: "center",
+      }}
+    >
+      {props.children}
+    </section>
+  );
+};
 
 export default Notification;
