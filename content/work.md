@@ -6,7 +6,9 @@ metaDescription: "Professional work experience"
 
 # Work
 
-**[Facebook](https://www.facebook.com/careers/):** Software Engineer. New York, NY *(2018-present)*
+**Chronotale:** Founder. New York, NY *(2021-present)*
+
+**[Facebook](https://www.facebook.com/careers/):** Software Engineer. New York, NY *(2018-2021)*
 
 **[Oscar Health](https://www.hioscar.com/careers):** Software Engineer. New York, NY *(2015-2016)*
 - Doctor portal, doctor search, mobile telemedicine with Python Flask, React and React Native.
