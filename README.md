@@ -1,5 +1,7 @@
 # Suyogs blog
 
+### Archived - see [Flux159/hugoblog](https://github.com/Flux159/hugoblog) for updated blog.
+
 Built off of [gatsby-gitbook-starter](https://github.com/hasura/gatsby-gitbook-starter).
 
 Added github action to publish to github pages on every change.
